@@ -2,7 +2,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
-const hostname = '127.0.0.1';
+// eslint-disable-next-line no-undef
+const hostname = process.env.HOSTNAME || '0.0.0.0';
 const app = express();
 // eslint-disable-next-line no-undef
 const port = process.env.PORT;
