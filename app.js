@@ -3,7 +3,7 @@ dotenv.config();
 
 import express from 'express';
 // eslint-disable-next-line no-undef
-const hostname = process.env.HOSTNAME || '0.0.0.0';
+const hostname = process.env.HOSTNAME || 'localhost';
 const app = express();
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 10000;
