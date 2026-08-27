@@ -1,7 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 const hostname = '127.0.0.1';
 const app = express();
-const port = 3000;
+// eslint-disable-next-line no-undef
+const port = process.env.PORT;
 
 app.use('/public', express.static('public'));
 
@@ -22,5 +26,6 @@ app.get('/api/v1/cat', (req, res) => {
 });
 
 app.listen(port, hostname, () => {
+  // eslint-disable-next-line no-undef
   console.log(`Server running at http://${hostname}:${port}/`);
 });
