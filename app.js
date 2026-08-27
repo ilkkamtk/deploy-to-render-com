@@ -6,7 +6,7 @@ import express from 'express';
 const hostname = process.env.HOSTNAME || '0.0.0.0';
 const app = express();
 // eslint-disable-next-line no-undef
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
 app.use('/public', express.static('public'));
 
