@@ -7,17 +7,6 @@ const app = express();
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 10000;
 
-// Request logging for debugging — logs incoming requests so we can see if Render reaches the app
-app.use((req, res, next) => {
-  console.log('INCOMING_REQUEST', new Date().toISOString(), req.method, req.url, 'host=', req.headers.host, 'x-forwarded-for=', req.headers['x-forwarded-for'] || req.ip);
-  next();
-});
-
-// Health check endpoint for Render (returns 200)
-app.get('/health', (req, res) => {
-  res.status(200).send('OK');
-});
-
 app.use('/public', express.static('public'));
 
 app.get('/', (req, res) => {
