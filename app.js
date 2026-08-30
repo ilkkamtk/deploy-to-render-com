@@ -2,8 +2,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
-// eslint-disable-next-line no-undef
-const hostname = process.env.HOSTNAME || 'localhost';
+// Listen on all interfaces so the Render router can reach the process
+const hostname = process.env.HOSTNAME || '0.0.0.0';
 const app = express();
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 10000;
@@ -26,6 +26,7 @@ app.get('/api/v1/cat', (req, res) => {
   res.json(cat);
 });
 
+// Do not bind only to localhost. Either pass 0.0.0.0 or omit the hostname argument.
 app.listen(port, hostname, () => {
   // eslint-disable-next-line no-undef
   console.log(`Server running at http://${hostname}:${port}/`);
